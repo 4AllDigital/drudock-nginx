@@ -50,4 +50,11 @@ COPY ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./config/nginx.conf /etc/nginx/conf/nginx.conf
 COPY ./config/pagespeed.conf /etc/nginx/conf.d/pagespeed.conf
 
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+RUN ln -sf /dev/stdout /var/log/supervisor/nginx.out.log  \
+    && ln -sf /dev/stderr /var/log/supervisor/nginx.err.log
+
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
