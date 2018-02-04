@@ -49,6 +49,7 @@ RUN chmod -R 775 /var/log/supervisor
 COPY ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./config/nginx.conf /etc/nginx/conf/nginx.conf
 COPY ./config/pagespeed.conf /etc/nginx/conf.d/pagespeed.conf
+COPY ./config/nginx.conf.default /etc/nginx/conf/nginx.conf.default
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
