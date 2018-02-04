@@ -4,8 +4,8 @@ MAINTAINER 4 All Digital  "joe@4alldigital.com"
 RUN mkdir -p /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
 
-COPY ./config/nginx.conf /etc/nginx/conf/nginx.conf
-COPY ./config/nginx.conf.default /etc/nginx/conf/nginx.conf.default
+COPY ./config/nginx.conf /etc/nginx/nginx.conf
+COPY ./config/nginx.conf.default /etc/nginx/nginx.conf.default
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
