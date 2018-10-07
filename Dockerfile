@@ -1,5 +1,7 @@
-FROM nginx:1.13.8
+FROM nginx:1.13.8-alpine-perl
 MAINTAINER 4 All Digital  "joe@4alldigital.com"
+
+ENV DNS_RESOLVER 127.0.0.11
 
 RUN mkdir -p /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
