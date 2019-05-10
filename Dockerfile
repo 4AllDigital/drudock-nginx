@@ -13,7 +13,7 @@ COPY ./config/drupal.conf /etc/nginx/conf.d/default.conf
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-RUN usermod -u 500 www-data && \
+RUN usermod -u 1000 www-data && \
     usermod -a -G users www-data
 
 EXPOSE 80
